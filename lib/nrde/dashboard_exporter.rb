@@ -1,4 +1,4 @@
-module nrde
+module Nrde
 	module DashboardExporter
 		def exporter(guid, width = '2000', height = '2000', personal_api_key = nil, new_relic_region = 'US')
 			begin
