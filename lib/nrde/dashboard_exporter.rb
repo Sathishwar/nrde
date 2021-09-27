@@ -1,6 +1,6 @@
 module Nrde
-	module DashboardExporter
-		def exporter(guid, width = '2000', height = '2000', personal_api_key = nil, new_relic_region = 'US')
+	class DashboardExporter
+		def self.exporter(guid, width = '2000', height = '2000', personal_api_key = nil, new_relic_region = 'US')
 			begin
 				raise "A New Relic API key is required." if personal_api_key.nil?
 				headers = {}
@@ -23,7 +23,7 @@ module Nrde
 				response = Net::HTTP.get_response(nr_download_uri)
 				return response
 			rescue => e
-				Rails.logger.error "PDF Download failed #{nr_download_uri} #{response.code}"
+				p "PDF Download failed #{nr_download_uri} #{response.code}"
 			end
 		end
 	end
