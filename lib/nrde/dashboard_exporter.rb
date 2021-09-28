@@ -1,6 +1,6 @@
 module Nrde
 	class DashboardExporter
-		def self.exporter(guid, width = '2000', height = '2000', personal_api_key = nil, new_relic_region = 'US')
+		def self.exporter(guid, personal_api_key = nil, width = '2000', height = '2000', new_relic_region = 'US')
 			begin
 				raise "A New Relic API key is required." if personal_api_key.nil?
 				headers = {}
