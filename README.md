@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nrde'
+gem 'nrde' , '~>0.1.2'
 ```
 
 And then execute:
@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'nrde'
+def exporter()
+    nrde_download = Nrde::DashboardExporter.exporter(guid = "<Newrelic GUID>", personal_api_key = "New Relic Personal API key")
+    tempfile = File.new("test.pdf","w")
+    File.open(tempfile.path, 'w') do |f|
+        f.write(nrde_download.body)
+    end
+end
+```
 
 ## Development
 
